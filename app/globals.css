@@ -9,7 +9,10 @@
 }
 
 .nubesBox{
-  background-image:url("../public/Cloud-background.png");
+  background-image:linear-gradient(rgba(30, 33, 58, 0.9), rgba(30, 33, 58, 0.9)), url("../public/Cloud-background.png")  ;
   background-repeat: no-repeat, repeat;
   background-position: center;
+  
 }
+
+
