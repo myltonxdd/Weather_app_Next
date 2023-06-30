@@ -16,3 +16,22 @@
 }
 
 
+/* ////////BARRA LEFT ////////////////// */
+
+.barrOn{
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  transform: scale(1);
+}
+
+.barrOff{
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  transform: scale(0);
+}
+
+

@@ -14,11 +14,11 @@ const lupa = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill
 const arrow = <svg xmlns="http://www.w3.org/2000/svg" fill='#616475' width="30" height="30" viewBox="0 -960 960 960"><path d="m304-82-56-57 343-343-343-343 56-57 400 400L304-82Z"/></svg>
 
 
-function BarLeft() {
+function BarLeft(props) {
   return (
-    <div className='d-flex display-raw flex-wrap position-fixed' style={{width:"100vh", height:"100vh"}}>
+    <div className={props.clase} style={{width:"100wh", height:"100vh"}}>
       <div className='d-flex flex-column align-items-center gap-4 w-100' style={{backgroundColor:"#1e213a", maxWidth:"26rem"}}>
-        <div className='my-2 w-75 d-flex flex-row-reverse'><CloseButton variant='white'/>;</div>
+        <div className='my-3 w-75 d-flex flex-row-reverse'><CloseButton variant='white'/>;</div>
         <div className='d-flex gap-1'>
           <div className='d-flex align-items-center gap-1 px-2' style={{border:"1px solid #616475"}}>
             {lupa}
