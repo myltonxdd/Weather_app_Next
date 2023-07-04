@@ -40,7 +40,7 @@ function CardImg(props) {
       
       <div className="d-flex flex-column align-items-center h-100 w-100" style={{minHeight:"13.5rem", maxWidth:"10rem"}} >
         <div className="card h-100 align-items-center flex-column justify-content-evenly" style={{backgroundColor:"#1e213a", }}>
-          <p className="text-white fs-4 mt-3">{props.day}</p>
+          <p className="text-white fs-4 mt-3">{props.day} {props.monty}</p>
           <div className="d-flex flex-column align-items-center w-100 h-100">
             <img src={climaImg} className="card-img-top w-50" alt="Wheater"/>
           </div>

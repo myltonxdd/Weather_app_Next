@@ -1,5 +1,5 @@
 "use client";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 /* import { format, parseISO } from 'date-fns'; */
 import CardImg from "@/components/CardImg";
 import BarLeft from "@/components/BarLeft";
@@ -238,13 +238,13 @@ export default function Home() {
 
   const progreso = (
     <div> 
-      <div className="d-flex justify-content-between text-white-50" style={{ fontSize: "12px" }}>
+      <div className="d-flex justify-content-between text-white-50" style={{ fontSize: "10px" }}>
         <span>0</span> <span>100</span>
       </div>
       <div style={{ maxHeight: ".5rem" }} className="progress" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" >
         <div className="progress-bar bg-warning" style={{ width: `${datos.list[0].main.humidity}%` }}></div>
       </div>
-      <div className="d-flex justify-content-end text-white-50" style={{ fontSize: "12px" }}>
+      <div className="d-flex justify-content-end text-white-50" style={{ fontSize: "10px" }}>
         <span>%</span>
       </div>
     </div>
@@ -281,8 +281,8 @@ export default function Home() {
       {/*///////////////Izquierda/////////////////// */}
       <div className="d-flex flex-column align-items-center text-white-50 py-3 m-0 w-100" style={{backgroundColor: "#1e213a",maxWidth: "26rem",height: "100vh",  }}>
         <div className="d-flex flex-raw justify-content-between w-100">
-          <Button variant="secondary" className="mx-2" onClick={setNavbar}>Search for places</Button>{" "}
-          <Button variant="secondary" className="rounded-circle mx-2 p-1">{iconTarg}</Button>{" "}
+          <Button variant="secondary" className="mx-2" onClick={setNavbar}>Search for places</Button>
+          <Button variant="secondary" className="rounded-circle mx-2 p-1">{iconTarg}</Button>
         </div>
         <div className="nubesBox d-flex flex-column align-items-center w-100">
           <img src={climaImg} className="card-img-top w-50 m-4" alt="Wheater" />
@@ -313,9 +313,9 @@ export default function Home() {
 
         <div className="d-flex justify-content-center flex-wrap w-100 gap-4">
           <CardImg day="Tomorrow" clima={datos.list[0].weather[0].main} tMax={((datos.list[0].main.temp_max - 273.15)*tempFinal).toFixed(1)} tMin={((datos.list[0].main.temp_min - 273.15)*tempFinal).toFixed(1)}/>
-          <CardImg day="tomorrow" clima={datos.list[8].weather[0].main} tMax={((datos.list[8].main.temp_max - 273.15)*tempFinal).toFixed(1)} tMin={((datos.list[0].main.temp_min - 273.15)*tempFinal).toFixed(1)}/>
-          <CardImg day="tomorrow" clima={datos.list[16].weather[0].main} tMax={((datos.list[16].main.temp_max - 273.15)*tempFinal).toFixed(1)} tMin={((datos.list[0].main.temp_min - 273.15)*tempFinal).toFixed(1)}/>
-          <CardImg day="tomorrow" clima={datos.list[24].weather[0].main} tMax={((datos.list[24].main.temp_max - 273.15)*tempFinal).toFixed(1)} tMin={((datos.list[0].main.temp_min - 273.15)*tempFinal).toFixed(1)} />
+          <CardImg day={dia + 2} monty={mes} clima={datos.list[8].weather[0].main} tMax={((datos.list[8].main.temp_max - 273.15)*tempFinal).toFixed(1)} tMin={((datos.list[0].main.temp_min - 273.15)*tempFinal).toFixed(1)}/>
+          <CardImg day={dia + 3} monty={mes} clima={datos.list[16].weather[0].main} tMax={((datos.list[16].main.temp_max - 273.15)*tempFinal).toFixed(1)} tMin={((datos.list[0].main.temp_min - 273.15)*tempFinal).toFixed(1)}/>
+          <CardImg day={dia + 4} monty={mes} clima={datos.list[24].weather[0].main} tMax={((datos.list[24].main.temp_max - 273.15)*tempFinal).toFixed(1)} tMin={((datos.list[0].main.temp_min - 273.15)*tempFinal).toFixed(1)} />
         </div>
         
         <div className="d-flex flex-column w-100 pt-3 gap-2">
