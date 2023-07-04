@@ -1,12 +1,10 @@
 "use client";
-
-/* import { format, parseISO } from 'date-fns'; */
 import CardImg from "@/components/CardImg";
 import BarLeft from "@/components/BarLeft";
 import Button from "react-bootstrap/Button";
 import CardText from "@/components/CardText";
 import { useEffect, useState } from "react";
-import { Swanky_and_Moo_Moo } from "next/font/google";
+
 
 /////////ICONS/////////////////////////
 
@@ -164,6 +162,18 @@ export default function Home() {
       break;
   }
   /* console.log(mes) */
+
+  //////////// DIA DE LA SEMANA ////////
+
+  let hoy = new Date();
+
+  let diaSemana = hoy.toLocaleString('en-US', { weekday: 'short' });
+  let diaMes = hoy.getDate();
+  let mes1 = hoy.toLocaleString('en-US', { month: 'short' });
+
+  let fecha = `${diaSemana}, ${diaMes} ${mes1}`;
+
+  console.log(fecha);
 
   /////////// DIR VIENTO /////
 
