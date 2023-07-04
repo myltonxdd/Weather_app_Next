@@ -13,20 +13,26 @@ const lupa = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill
 
 const arrow = <svg xmlns="http://www.w3.org/2000/svg" fill='#616475' width="30" height="30" viewBox="0 -960 960 960"><path d="m304-82-56-57 343-343-343-343 56-57 400 400L304-82Z"/></svg>
 
+/* api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=bc07aa562eedf9f9d4bb3b8aa994f8b7 */
 
-function BarLeft(props) {
+const removeNavBar = () => {
+  const navBar = document.getElementById("barr");
+  navBar.classList.remove("active");
+}
+
+function BarLeft({clase}) {
   return (
-    <div className={props.clase} style={{width:"100wh", height:"100vh"}}>
+    <div className={clase} id='barr' style={{width:"100vh", height:"100vh"}}>
       <div className='d-flex flex-column align-items-center gap-4 w-100' style={{backgroundColor:"#1e213a", maxWidth:"26rem"}}>
-        <div className='my-3 w-75 d-flex flex-row-reverse'><CloseButton variant='white'/>;</div>
+        <div className='my-3 w-75 d-flex flex-row-reverse'><CloseButton variant='white' onClick={removeNavBar}/>;</div>
         <div className='d-flex gap-1'>
           <div className='d-flex align-items-center gap-1 px-2' style={{border:"1px solid #616475"}}>
             {lupa}
             <input style={{backgroundColor:"#1e213a"}} className='border-0' placeholder='Search location' type="text" />
           </div>
-          <button className='text-white p-1 border-0' style={{backgroundColor:"#3c47e9"}}>Search</button>
+          <button className='text-white p-1 border-0' style={{backgroundColor:"#3c47e9"}} onClick={removeNavBar}>Search</button>
         </div>
-        <div className='d-flex flex-column w-75 my-4 gap-4'>
+        <div className='d-flex flex-column w-75 my-4 gap-4' onClick={removeNavBar}>
           <button className='text-white border-0 d-flex justify-content-between' style={{backgroundColor:"#1e213a"}}>London {arrow} </button>
           <button className='text-white border-0 d-flex justify-content-between' style={{backgroundColor:"#1e213a"}}>Barcelona {arrow}</button>
           <button className='text-white border-0 d-flex justify-content-between' style={{backgroundColor:"#1e213a"}}>Long Beach {arrow}</button>

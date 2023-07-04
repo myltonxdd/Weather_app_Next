@@ -1,6 +1,7 @@
 *{margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family:'Raleway', sans-serif; */
 }
 
 .totalBox{
@@ -9,6 +10,8 @@
 }
 
 .nubesBox{
+  width: 100%;
+  height: 100%;
   background-image:linear-gradient(rgba(30, 33, 58, 0.9), rgba(30, 33, 58, 0.9)), url("../public/Cloud-background.png")  ;
   background-repeat: no-repeat, repeat;
   background-position: center;
@@ -18,20 +21,16 @@
 
 /* ////////BARRA LEFT ////////////////// */
 
-.barrOn{
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  transform: scale(1);
-}
-
-.barrOff{
+#barr{
   position: fixed;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   transform: scale(0);
+}
+
+#barr.active{
+  transform: scale(1)  !important;
 }
 
 

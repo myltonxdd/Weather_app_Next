@@ -2,14 +2,14 @@ import React from 'react'
 
 function CardText(props) {
   return (
-    <div className='d-flex flex-column text-white align-items-center' style={{backgroundColor:"#1e213a", maxWidth:"24rem", minWidth:"18rem"}}>
+    <div className='d-flex flex-column text-white align-items-center justify-content-center w-100' style={{backgroundColor:"#1e213a", maxWidth:"22rem", }}>
         
-        <p className='pt-3 m-0'>{props.carac} </p>
-        <div >
-            <span style={{fontSize:"75px"}}>{props.number}</span>
-            <span className='fs-1'>{props.tipo}</span>
+        <p className='pt-2 m-0'>{props.carac} </p>
+        <div className='p-0 w-75 d-flex justify-content-center'>
+            <div className='p-0 m-0' style={{fontSize:"60px"}}>{props.number}<span className='fs-1'>{props.tipo}</span> </div>
         </div>
-        <div>{props.custom} </div>
+        <span className='w-75 h-100 pb-2 '>{props.extra}</span> 
+        
     </div>
   )
 }
