@@ -27,6 +27,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   transform: scale(0);
+  
 }
 
 #barr.active{
@@ -34,3 +35,37 @@
 }
 
 
+
+@media screen and (max-width: 1024px) {
+  .derecha{
+    max-width: 41rem !important;
+  }
+  .izquierda{
+    max-width: 21rem !important;
+   /*  height: 100% !important; */
+
+  }
+  .cardtextcss{
+    max-width: 18rem !important;
+  }
+  .cardimgcss{
+    width: 8rem !important;
+    height: 9rem !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .izquierda{
+    max-width: 320px !important;
+  }
+}
+@media screen and (max-width: 375px) {
+  .izquierda{
+    max-width: 375px !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  .izquierda{
+    max-width: 425px !important;
+  }
+}

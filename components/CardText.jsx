@@ -2,7 +2,7 @@ import React from 'react'
 
 function CardText(props) {
   return (
-    <div className='d-flex flex-column text-white align-items-center justify-content-center w-100' style={{backgroundColor:"#1e213a", maxWidth:"22rem", }}>
+    <div className='cardtextcss d-flex flex-column text-white align-items-center justify-content-center w-100' style={{backgroundColor:"#1e213a", maxWidth:"22rem", }}>
         
         <p className='pt-2 m-0'>{props.carac} </p>
         <div className='p-0 w-75 d-flex justify-content-center'>

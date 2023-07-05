@@ -8,43 +8,16 @@ import { useEffect, useState } from "react";
 /////////ICONS/////////////////////////
 
 const location = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    fill="currentColor"
-    className="bi bi-geo-alt-fill"
-    viewBox="0 0 16 16"
-  >
-    {" "}
-    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />{" "}
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt-fill"
+    viewBox="0 0 16 16" >{" "} <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />{" "} </svg>
 );
 
-const iconTarg = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="30"
-    width="30"
-    fill="white"
-    viewBox="0 -960 960 960"
-  >
-    {" "}
-    <path d="M450-42v-75q-137-14-228-105T117-450H42v-60h75q14-137 105-228t228-105v-75h60v75q137 14 228 105t105 228h75v60h-75q-14 137-105 228T510-117v75h-60Zm30-134q125 0 214.5-89.5T784-480q0-125-89.5-214.5T480-784q-125 0-214.5 89.5T176-480q0 125 89.5 214.5T480-176Zm0-154q-63 0-106.5-43.5T330-480q0-63 43.5-106.5T480-630q63 0 106.5 43.5T630-480q0 63-43.5 106.5T480-330Z" />{" "}
-  </svg>
+const iconTarg = (<svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" fill="white" viewBox="0 -960 960 960"
+  > {" "} <path d="M450-42v-75q-137-14-228-105T117-450H42v-60h75q14-137 105-228t228-105v-75h60v75q137 14 228 105t105 228h75v60h-75q-14 137-105 228T510-117v75h-60Zm30-134q125 0 214.5-89.5T784-480q0-125-89.5-214.5T480-784q-125 0-214.5 89.5T176-480q0 125 89.5 214.5T480-176Zm0-154q-63 0-106.5-43.5T330-480q0-63 43.5-106.5T480-630q63 0 106.5 43.5T630-480q0 63-43.5 106.5T480-330Z" />{" "} </svg>
 );
 
-const flchNav = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="35"
-    viewBox="0 -960 960 960"
-    fill="white"
-    width="35"
-  >
-    {" "}
-    <path d="m211.925-150.002-21.923-21.153L480-830.766l289.998 659.611-21.923 21.153L480-270.463 211.925-150.002Z" />{" "}
-  </svg>
+const flchNav = ( <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="white" width="35"
+  >{" "} <path d="m211.925-150.002-21.923-21.153L480-830.766l289.998 659.611-21.923 21.153L480-270.463 211.925-150.002Z" />{" "} </svg>
 );
 
 /////////// FUNCTIONS /////////////
@@ -52,24 +25,10 @@ const flchNav = (
 export default function Home() {
   const [datos, setDatos] = useState(null);
   const [temForm, seTemForm] = useState("metric");
-   const [hola, setHola] = useState('');
-   
- // const [longitud, setLongitud] = useState(null);
+  const [hola, setHola] = useState('');
   const [nameCity, setNameCity] = useState("quito");
-  /* const [url, setUrl] = useState(); */
 
   //////// LOCALIZACION ///////////
-
-  /*   const funcionInit = () => {
-    const onUbicacionConcedida = (ubicacion) => {
-      const lat = ubicacion.coords.latitude;
-      const lon = ubicacion.coords.longitude;
-      setLatitud(lat);
-      setLongitud(lon);};
-
-    // Solicitar
-    navigator.geolocation.getCurrentPosition(onUbicacionConcedida);
-  }; */
 
   function getCoordinates() {
     return new Promise(function (resolve, reject) {
@@ -79,35 +38,34 @@ export default function Home() {
   /*   console.log("lat", latitud, "lon", longitud) */
   ////////////// JSON /////////////////
 
-  async function getData(ho) {
+  async function getData(citL) {
+  
     const geo = await getCoordinates();
 
     let latitud = -2.2058400;
     let longitud = -79.9079500;
     geo && ((latitud = geo.coords.latitude), (longitud = geo.coords.longitude));
-/*     console.log(latitud, longitud, geo.length()) */
+ 
     try {
-      setHola(ho);
-      if (latitud !== undefined && longitud !== undefined) {
+      if (citL === '') {
         const parameter = await fetch(
           `https://api.openweathermap.org/data/2.5/forecast?lat=${latitud}&lon=${longitud}&appid=bc07aa562eedf9f9d4bb3b8aa994f8b7&units=${temForm}`
         );
         const data = await parameter.json();
         const cityName = data.city.name;
-        setNameCity(cityName);
-        console.log(nameCity);
+        console.log(cityName);
         return data;
       } else {
         
-        const { city } = e.target.elements;
-        const cityName = city.value;
-        setNameCity(cityName);
+         console.log(citL);
+         setNameCity(citL)
         const parameter = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=bc07aa562eedf9f9d4bb3b8aa994f8b7&units=${temForm}`
+          `https://api.openweathermap.org/data/2.5/forecast?q=${nameCity}&appid=bc07aa562eedf9f9d4bb3b8aa994f8b7&units=${temForm}`
         );
         const data = await parameter.json();
         
-        return data;
+        setDatos(data);
+    
       }
       
     } catch (error) {
@@ -117,13 +75,13 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const climaData = await getData(temForm);
+      const climaData = await getData("");
       setDatos(climaData);
     };
-    /* funcionInit(); */
+
     fetchData();
-  }, [temForm]);
-  console.log(hola);
+  }, []);
+   
   ////////// ERROR //////////////////
 
   if (!datos) {
@@ -223,7 +181,6 @@ export default function Home() {
       mes = "Dic";
       break;
   }
-  /* console.log(mes) */
 
   //////////// DIA DE LA SEMANA ////////
 
@@ -369,31 +326,28 @@ export default function Home() {
     navBar.classList.remove("active");
   };
 
+  const removecity = async() => {
+    const booradata = await getData("")
+    setDatos(booradata)
+  }
+
   ///////////// RETRUN /////////////////////////////////////////////////////
   
   return (
-    <div
-      className="d-flex display-raw flex-wrap"
-      style={{ backgroundColor: "#100e1d", width: "100vw" }}
-    >
+    <div className="d-flex display-raw flex-wrap" style={{ backgroundColor: "#100e1d", width: "100vw" }}>
       {/*////////////// izquierda BUSQUEDA/////////// */}
 
       <BarLeft functionForm={getData} setHola = {setHola} />
 
       {/*///////////////Izquierda/////////////////// */}
-      <div
-        className="d-flex flex-column align-items-center text-white-50 py-3 m-0 w-100"
-        style={{
-          backgroundColor: "#1e213a",
-          maxWidth: "26rem",
-          height: "100vh",
-        }}
+      <div className="izquierda d-flex flex-column align-items-center text-white-50 py-3 m-0 w-100" style={{
+          backgroundColor: "#1e213a", maxWidth: "26rem", height: "100vh",}}
       >
         <div className="d-flex flex-raw justify-content-between w-100">
           <Button variant="secondary" className="mx-2" onClick={setNavbar}>
             Search for places
           </Button>
-          <Button variant="secondary" className="rounded-circle mx-2 p-1">
+          <Button variant="secondary" className="rounded-circle mx-2 p-1" onClick={removecity}>
             {iconTarg}
           </Button>
         </div>
@@ -419,24 +373,12 @@ export default function Home() {
 
       {/* ///////////// DERECHA //////////////// */}
 
-      <div
-        className="d-flex flex-column align-items-center gap-3 pt-3 mx-3 w-100"
-        onClick={removeNavBar}
-        style={{ maxWidth: "68rem" }}
-      >
+      <div className="derecha d-flex flex-column align-items-center gap-3 pt-3 mx-3 w-100" onClick={removeNavBar} style={{ maxWidth: "62rem" }}>
         <div className="d-flex justify-content-end gap-1 w-75">
-          <button
-            type="button"
-            className="btn btn-secondary rounded-circle p-1"
-            onClick={centigrados}
-          >
+          <button type="button" className="btn btn-secondary rounded-circle p-1" onClick={centigrados}>
             °C
           </button>
-          <button
-            type="button"
-            className="btn btn-secondary rounded-circle p-1"
-            onClick={farengein}
-          >
+          <button type="button" className="btn btn-secondary rounded-circle p-1" onClick={farengein}>
             °F
           </button>
         </div>
@@ -474,37 +416,19 @@ export default function Home() {
             grados={temForm == "metric" ? "°C" : "°F"}
             clima={datos.list[32].weather[0].main}
             tMax={datos.list[32].main.temp_max.toFixed(1)}
-            tMin={datos.list[32].main.temp_min.toFixed(1)}
-          />
+            tMin={datos.list[32].main.temp_min.toFixed(1)}/>
         </div>
 
         <div className="d-flex flex-column w-100 pt-3 gap-2">
           <h3 className="text-white px-5">Today's Highlights</h3>
           <div className="d-flex justify-content-center flex-row flex-wrap gap-3">
-            <CardText
-              carac="Wind status"
-              number={datos.list[0].wind.speed}
-              tipo={temForm == "metric" ? "m/s" : "Mph"}
-              extra={dirFlecha}
-            />
-            <CardText
-              carac="Humidity"
-              number={datos.list[0].main.humidity}
-              tipo="%"
-              extra={progreso}
-            />
+            <CardText carac="Wind status" number={datos.list[0].wind.speed} tipo={temForm == "metric" ? "m/s" : "Mph"}
+              extra={dirFlecha}/>
+            <CardText carac="Humidity" number={datos.list[0].main.humidity} tipo="%" extra={progreso}/>
           </div>
           <div className="d-flex justify-content-center flex-row flex-wrap gap-3">
-            <CardText
-              carac="Visibility"
-              number={(datos.list[0].visibility / 1000).toFixed()}
-              tipo="miles"
-            />
-            <CardText
-              carac="Air Presure"
-              number={datos.list[0].main.pressure}
-              tipo="mb"
-            />
+            <CardText carac="Visibility" number={(datos.list[0].visibility / 1000).toFixed()} tipo="miles"/>
+            <CardText carac="Air Presure" number={datos.list[0].main.pressure} tipo="mb"/>
           </div>
         </div>
         <div className="text-white-50 pt-2">
