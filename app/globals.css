@@ -26,8 +26,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  z-index: 10;
   transform: scale(0);
-  
 }
 
 #barr.active{
@@ -54,9 +54,13 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 321px) {
   .izquierda{
     max-width: 320px !important;
+  }
+  .izquierda1{
+    max-width: 320px !important;
+    
   }
 }
 @media screen and (max-width: 375px) {

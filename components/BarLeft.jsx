@@ -27,18 +27,18 @@ const removeNavBar = () => {
 function BarLeft({ functionForm }) {
   const [value, setValue] = useState();
   return (
-    <div className="izquierda" id="barr" style={{ width: "100vh", height: "100vh" }}>
-      <form className="d-flex flex-column align-items-center gap-4 w-100" style={{ backgroundColor: "#1e213a", maxWidth: "26rem" }}>
+    <div className="" id="barr" style={{width: "100vw", height: "100vh"}}>
+      <form className="izquierda1 d-flex flex-column align-items-center gap-4 w-100" style={{ backgroundColor: "#1e213a", maxWidth: "26rem" }}>
         <div className="my-3 w-75 d-flex flex-row-reverse">
           <CloseButton variant="white" onClick={removeNavBar} />;
         </div>
-        <div className="d-flex gap-1">
-          <div className="d-flex align-items-center gap-1 px-2" style={{ border: "1px solid #616475" }}>
+        <div className="d-flex gap-1 w-75">
+          <div className="d-flex align-items-center gap-1 px-2 w-75" style={{ border: "1px solid #616475" }}>
             {lupa}
-            <input style={{ backgroundColor: "#1e213a",  }} className="border-0 text-white" placeholder="Search location"
+            <input style={{ backgroundColor: "#1e213a",  }} className="border-0 text-white w-75" placeholder="Search location"
               type="text" value={value} onChange={(e)=>{setValue(e.target.value)}}/>
           </div>
-          <button className="text-white p-1 border-0" style={{ backgroundColor: "#3c47e9" }}
+          <button className="text-white p-1 border-0 w-25" style={{ backgroundColor: "#3c47e9" }}
           onClick={(e) => {e.preventDefault(), functionForm(value)}}>
             Search
           </button>

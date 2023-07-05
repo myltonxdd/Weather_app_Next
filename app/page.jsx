@@ -341,8 +341,7 @@ export default function Home() {
 
       {/*///////////////Izquierda/////////////////// */}
       <div className="izquierda d-flex flex-column align-items-center text-white-50 py-3 m-0 w-100" style={{
-          backgroundColor: "#1e213a", maxWidth: "26rem", height: "100vh",}}
-      >
+          backgroundColor: "#1e213a", maxWidth: "26rem", height: "100vh",}}>
         <div className="d-flex flex-raw justify-content-between w-100">
           <Button variant="secondary" className="mx-2" onClick={setNavbar}>
             Search for places
